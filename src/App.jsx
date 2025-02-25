@@ -1,4 +1,4 @@
-import "./styles/partials/App";
+import "./styles/partials/App.scss";
 
 function App() {
   return (
