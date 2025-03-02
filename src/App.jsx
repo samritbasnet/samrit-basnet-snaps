@@ -13,7 +13,6 @@ function App() {
     setIsTagsPanelOpen((prev) => !prev);
   };
 
-  // const filteredPhotos=selectedTag ? photosData.filter((photo)=>photo.tags.includes(selectedTag)) : photosData;
   return (
     <>
       <Navbar togglePanelOpen={togglePanelOpen} />
