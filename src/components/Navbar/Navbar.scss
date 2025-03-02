@@ -11,6 +11,7 @@
   justify-content: space-between;
   padding: 16px 20px;
 
+
   &__logo {
     font-family: "Newsreader", serif;
     font-size: 32px;
@@ -36,8 +37,8 @@
     line-height: .9375rem;
     font-weight: 700;
     border-radius: 999px;
-    background: transparent;
     transition: background-color 0.3s ease, color 0.3s ease;
+
     @include tablet{
       font-size: 1rem;
       font-weight: 700;
@@ -47,6 +48,7 @@
     &:hover{
       background-color: $primary-accent;
       color: $alternate-text;
+    
     }
   }
 }

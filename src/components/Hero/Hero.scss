@@ -1,0 +1,42 @@
+@use '../../styles/partials/index' as *;
+@use '../../styles/partials/breakpoint' as *;
+.hero{
+    padding: 8rem .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+  &__content {
+    max-width: 47.5rem;
+    
+    @include tablet{
+        max-width: 72rem;
+    }
+  }
+  &__title {
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.4375rem;
+    @include tablet{
+        font-size: 1.5rem;
+        line-height: 1.875rem;
+        margin-top: 4rem;
+    }
+
+  }
+  &__text{
+    font-size: 1.625rem;
+    font-weight: 200;
+    text-align: left;
+    line-height: 2.375rem;
+    @include tablet{
+    font-size: 3.25rem;
+    line-height: 4.125rem;
+    }
+  } &__text--italic {
+    font-style: italic;
+  }
+}

@@ -8,7 +8,7 @@ const Navbar = ({ togglePanelOpen }) => {
       <h1 className='navbar__logo'>      Snaps</h1>
 
       <button className='navbar__button' onClick={togglePanelOpen}>Filters
-        <img className="navbar__button--svg"  preserveAspectRatio="xMidYMid meet" src={FilterIcon} alt="Filter-Icon"/>
+        <img className="navbar__button--svg"   src={FilterIcon} alt="Filter-Icon"/>
       </button>
     </nav>
   );
