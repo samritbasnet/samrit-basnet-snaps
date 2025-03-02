@@ -9,18 +9,16 @@
   display: flex;
   justify-content: space-between;
   padding: 16px 9px;
-  
- 
 
 
   &__logo {
     font-family: "Newsreader", serif;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 400;
     text-align: left;
     color: $primary-text;
     @include tablet{
-      font-size:40px;
+      font: size 40px;
       line-height: 40px;
       font-weight: 400;
 
@@ -49,10 +47,10 @@ background-color: $primary-background;
     &:hover{
       background-color: $primary-accent;
       color: $alternate-text;
-      path {
-        fill: white;
+        path {
+          fill: white;
       }
-    
+
     }
   }
 }

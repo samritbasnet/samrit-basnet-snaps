@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import './App.scss';
+import { useState } from "react";
+import "./App.scss";
+import Footer from "./components/Footer/Footer";
 import Photos from "./components/Gallery/Photos";
-import Hero from './components/Hero/Hero';
-import Navbar from './components/Navbar/Navbar';
-import Tags from './components/Tags/Tags';
+import Hero from "./components/Hero/Hero";
+import Navbar from "./components/Navbar/Navbar";
+import Tags from "./components/Tags/Tags";
 
 function App() {
   const [selectedTag, setSelectedTag] = useState(null);
@@ -15,16 +16,16 @@ function App() {
   // const filteredPhotos=selectedTag ? photosData.filter((photo)=>photo.tags.includes(selectedTag)) : photosData;
   return (
     <>
-         <Navbar togglePanelOpen={togglePanelOpen} />
-  
+      <Navbar togglePanelOpen={togglePanelOpen} />
+
       {isTagsPanelOpen && (
         <Tags selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
       )}
-              <Hero/>
-      <Photos selectedTag={selectedTag} isTagsPanelOpen={isTagsPanelOpen}/>
+      <Hero />
 
+      <Photos selectedTag={selectedTag} isTagsPanelOpen={isTagsPanelOpen} />
+      <Footer />
     </>
   );
-
 }
 export default App;
