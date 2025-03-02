@@ -1,0 +1,30 @@
+
+
+.tags-panel {
+    position: fixed;
+    right: 0;
+    top: 71px;
+    width: 300px;
+    height: 100%;
+    transform: (translateX(100%));
+    background-color: $alternate-backgroundcolor;
+    overflow-x: auto;
+    overflow-y: hidden;
+  
+    &.open {
+      transform: translateX(0);
+    }
+  
+    &__tag {
+      border: 1px solid black;
+      border-radius: 7px;
+      background-color: aquamarine;
+      cursor: pointer;
+  
+      &--selected {
+        color: red;
+        font-weight: bold;
+      }
+    }
+  }
+  

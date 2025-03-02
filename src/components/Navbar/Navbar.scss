@@ -9,7 +9,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 16px 9px;
+ 
 
 
   &__logo {
@@ -37,8 +38,10 @@
     line-height: .9375rem;
     font-weight: 700;
     border-radius: 999px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+&--svg{
+  background-color: transparent;
 
+}
     @include tablet{
       font-size: 1rem;
       font-weight: 700;

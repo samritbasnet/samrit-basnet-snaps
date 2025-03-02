@@ -1,0 +1,29 @@
+@use '../../styles/partials/index' as *;
+@use '../../styles/partials/breakpoint' as *;
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: $alternate-backgroundcolor;
+    padding: 1rem;
+    margin-bottom: 3rem;
+  
+    &__photo {
+      border: .125rem solid $border-color;
+      flex: 1 1 calc(33.33% - 1rem);
+    }
+  
+    &__image {
+      width: 50%;
+    }
+  
+    &.with-tags-open {
+      margin-right: 300px;
+      gap: 2rem;
+  
+      &__photo {
+        flex: 1 1 calc(33.33% - 2rem);
+      }
+    }
+  }
+  

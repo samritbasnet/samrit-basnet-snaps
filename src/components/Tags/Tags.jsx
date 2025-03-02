@@ -1,4 +1,4 @@
-import tags from '../../Data/tags.json'
+import tags from '../../Data/tags.json';
 
 const Tags=({selectedTag,setSelectedTag})=>{
     return(
@@ -9,7 +9,8 @@ const Tags=({selectedTag,setSelectedTag})=>{
                 key={index}
                 className={`tags-panel__tag 
                     ${selectedTag===tag ? "tags-panel__tag--selected": ""}`}
-                    onClick={()=>setSelectedTag(truthyChecker(tag))}
+                    onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+
 
                 >
                     {tag}
@@ -19,3 +20,4 @@ const Tags=({selectedTag,setSelectedTag})=>{
         </div>
     )
 }
+export default Tags;
