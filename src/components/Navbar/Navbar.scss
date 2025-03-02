@@ -1,7 +1,6 @@
 @use '../../styles/partials/index' as *;
 @use '../../styles/partials/breakpoint' as *;
 .navbar {
-  position: fixed;
   display: flex;
   align-items: center;
   top: 0;
@@ -10,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   padding: 16px 9px;
+  
  
 
 
@@ -23,6 +23,7 @@
       font-size:40px;
       line-height: 40px;
       font-weight: 400;
+
       }
   }
 
@@ -38,10 +39,7 @@
     line-height: .9375rem;
     font-weight: 700;
     border-radius: 999px;
-&--svg{
-  background-color: transparent;
-
-}
+background-color: $primary-background;
     @include tablet{
       font-size: 1rem;
       font-weight: 700;
@@ -51,6 +49,9 @@
     &:hover{
       background-color: $primary-accent;
       color: $alternate-text;
+      path {
+        fill: white;
+      }
     
     }
   }

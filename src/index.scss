@@ -4,7 +4,16 @@
 *::before,
 *::after {
   font-family: Newsreader, Avenir, Helvetica, sans-serif;
-  
+
   box-sizing: border-box;
+}
+body{
   background-color: $primary-background;
+}
+.title{
+  font-weight: 300;
+  font: size 1.625rem; ;
+@include tablet{
+  font: size 3.25rem;
+}
 }

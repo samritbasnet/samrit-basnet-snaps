@@ -4,7 +4,7 @@ const Tags = ({ selectedTag, setSelectedTag }) => {
     return (
         <div className="tags-panel-open">
             <h2>Filters</h2>
-            <div className="tags-panel"> {/* Make sure tags are inside this div */}
+            <div className="tags-panel"> 
                 {tags.map((tag, index) => (
                     <p
                         key={index}

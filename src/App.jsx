@@ -11,13 +11,16 @@ function App() {
   const togglePanelOpen = () => {
     setIsTagsPanelOpen((prev) => !prev);
   };
+
+  // const filteredPhotos=selectedTag ? photosData.filter((photo)=>photo.tags.includes(selectedTag)) : photosData;
   return (
     <>
          <Navbar togglePanelOpen={togglePanelOpen} />
-          <Hero/>
+  
       {isTagsPanelOpen && (
         <Tags selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
       )}
+              <Hero/>
       <Photos selectedTag={selectedTag} isTagsPanelOpen={isTagsPanelOpen}/>
 
     </>

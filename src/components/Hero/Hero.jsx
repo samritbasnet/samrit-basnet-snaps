@@ -7,7 +7,7 @@ const Hero = () => {
 <h2 className="hero__title">
     Our mission:
 </h2>
-<p className="hero__text">
+<p className="hero__text title" >
           Provide photographers a space to share photos of the neighborhoods they cherish,{" "}
           <span className="hero__text--italic">expressed in their unique style.</span>
         </p>

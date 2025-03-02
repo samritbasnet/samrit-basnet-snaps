@@ -14,7 +14,15 @@
       flex: 1 1 calc(33.33% - 16px);
       
     }
-  
+  &__container{
+    position: relative;
+  }
+  &__author{
+    position: absolute;
+    bottom: 10.5rem;
+    right: 1.25rem;
+    background-color: green;
+  }
     &__image {
       width: 100%;
       object-fit: cover;
