@@ -1,9 +1,9 @@
-import "./App.scss";
-import Header from "./components/Header/Header";
+import './App.scss';
+import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
     <>
-      <Header />
+      <Navbar />
     </>
   );
 }

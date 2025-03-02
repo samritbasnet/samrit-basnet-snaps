@@ -1,11 +1,3 @@
-@use "./styles/partials/index" as *;
-
-* {
-  margin: 0;
-}
-body {
-  font-family: NewsReader, sans-serif, Arial;
-  margin: 0;
-  box-sizing: border-box;
-  background-color: $primary-background;
+.app {
+  margin: 1rem;
 }

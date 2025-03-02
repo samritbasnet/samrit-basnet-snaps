@@ -1,0 +1,52 @@
+@use '../../styles/partials/index' as *;
+@use '../../styles/partials/breakpoint' as *;
+.navbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 20px;
+
+  &__logo {
+    font-family: "Newsreader", serif;
+    font-size: 32px;
+    font-weight: 400;
+    text-align: left;
+    color: $primary-text;
+    @include tablet{
+      font-size:40px;
+      line-height: 40px;
+      font-weight: 400;
+      }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 24px;
+    font-size: .80rem;
+    font-weight: bold;
+    color: $primary-accent;
+    border: 3.04px solid $primary-accent;
+    line-height: .9375rem;
+    font-weight: 700;
+    border-radius: 999px;
+    background: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    @include tablet{
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.625rem;
+      padding: .75rem 2.75rem;
+    }
+    &:hover{
+      background-color: $primary-accent;
+      color: $alternate-text;
+    }
+  }
+}

@@ -1,40 +1,34 @@
 @font-face {
-  font-family: Akz;
-  src: url(/assets/fonts/Akzidenz-grotesk-black.ttf) format("truetype");
-  font-weight: 700;
-}
-
-// All four types of the Monserrat family that we've imported use the SAME family name
-@font-face {
   font-family: Newsreader;
-  src: url(../../assets/Font/Newsreader-Regular.woff) format("truetype");
+  src: url(../../assets/Font/Newsreader-Regular.woff) format("woff");
   font-weight: 400;
-  font-style: Normal;
+  font-style: normal; 
 }
 
 @font-face {
   font-family: Newsreader;
-  src: url(../../assets/Font/Newsreader-Light.woff) format("truetype");
+  src: url(../../assets/Font/Newsreader-Light.woff) format("woff");
   font-weight: 200;
-  font-style: Light;
+  font-style: normal;
 }
 
 @font-face {
   font-family: Newsreader;
-  src: url(../../assets/Font/Newsreader-LightItalic.woff) format("truetype");
+  src: url(../../assets/Font/Newsreader-LightItalic.woff) format("woff");
   font-weight: 400;
-  font-style: Light Italic;
+  font-style: italic;
 }
 
 @font-face {
   font-family: Outfit;
-  src: url(../../assets/Font/Outfit-Medium.woff) format("truetype");
+  src: url(../../assets/Font/Outfit-Medium.woff) format("woff");
   font-weight: 400;
-  font-style: Medium;
+  font-style: normal; 
 }
+
 @font-face {
   font-family: Outfit;
-  src: url(../../assets/Font/Outfit-Light.woff) format("truetype");
+  src: url(../../assets/Font/Outfit-Light.woff) format("woff");
   font-weight: 200;
-  font-style: Light;
+  font-style: normal; 
 }
