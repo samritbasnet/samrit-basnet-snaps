@@ -1,30 +1,35 @@
 
-
+@use '../../styles/partials/index' as *;
+@use '../../styles/partials/breakpoint' as *;
 .tags-panel {
-    position: fixed;
-    right: 0;
-    top: 71px;
-    width: 300px;
-    height: 100%;
-    transform: (translateX(100%));
-    background-color: $alternate-backgroundcolor;
-    overflow-x: auto;
-    overflow-y: hidden;
+  display: flex;
+  flex-wrap: wrap;  
+  gap: 0.75rem;     
+  max-width: 100%;   
+  padding: 4rem 0;  
+  background-color:$alternate-backgroundcolor;
+  margin-bottom: 1.875rem;
+}
+
+.tags-panel__tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: $primary-accent;
+  font-weight: 600;
+  border: 2px solid $border-color;
+  border-radius: .625rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
   
-    &.open {
-      transform: translateX(0);
-    }
-  
-    &__tag {
-      border: 1px solid black;
-      border-radius: 7px;
-      background-color: aquamarine;
-      cursor: pointer;
-  
-      &--selected {
-        color: red;
-        font-weight: bold;
-      }
-    }
+  &:hover {
+      background-color: $hover-color;
+      color: white;
   }
-  
+
+  &--selected {
+      background-color: red;
+      color: white;
+      font-weight: bold;
+  }
+}

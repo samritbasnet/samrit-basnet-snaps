@@ -3,26 +3,29 @@
 .photos {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    background-color: $alternate-backgroundcolor;
-    padding: 1rem;
-    margin-bottom: 3rem;
+    gap: 16px;
+    padding: 16px;
+    margin-bottom: 48px;
+  
   
     &__photo {
-      border: .125rem solid $border-color;
-      flex: 1 1 calc(33.33% - 1rem);
+      border: 3px solid $border-color;
+      border-radius: .5rem;
+      flex: 1 1 calc(33.33% - 16px);
+      
     }
   
     &__image {
-      width: 50%;
+      width: 100%;
+      object-fit: cover;
     }
   
     &.with-tags-open {
-      margin-right: 300px;
-      gap: 2rem;
+      margin-right: 18.75rem;
+      gap: 32px;
   
       &__photo {
-        flex: 1 1 calc(33.33% - 2rem);
+        flex: 1 1 calc(33.33% - 32px);
       }
     }
   }

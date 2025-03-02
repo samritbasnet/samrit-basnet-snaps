@@ -13,14 +13,15 @@ function App() {
   };
   return (
     <>
-      <Navbar togglePanelOpen={togglePanelOpen} />
-      <Hero/>
+         <Navbar togglePanelOpen={togglePanelOpen} />
+          <Hero/>
       {isTagsPanelOpen && (
         <Tags selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
       )}
       <Photos selectedTag={selectedTag} isTagsPanelOpen={isTagsPanelOpen}/>
+
     </>
   );
-}
 
+}
 export default App;
