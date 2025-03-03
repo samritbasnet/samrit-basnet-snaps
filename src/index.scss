@@ -1,5 +1,5 @@
-@use './styles/partials/typography';
-@use './styles/partials/index' as *;
+@use "./styles/partials/typography";
+@use "./styles/partials/index" as *;
 *,
 *::before,
 *::after {
@@ -7,13 +7,13 @@
 
   box-sizing: border-box;
 }
-body{
+body {
   background-color: $primary-background;
 }
-.title{
+.title {
   font-weight: 300;
-  font: size 1.625rem; ;
-@include tablet{
-  font: size 3.25rem;
-}
+  font: size 1.625rem;
+  @include tablet {
+    font: size 3.25rem;
+  }
 }

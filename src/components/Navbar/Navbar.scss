@@ -11,7 +11,6 @@
   padding: 1rem 0.5625rem;
 
   &__logo {
-    font-family: "Newsreader", serif;
     font-size: 2rem;
     font-weight: 400;
     text-align: left;
@@ -31,9 +30,9 @@
     font-size: 0.8rem;
     font-weight: bold;
     color: $primary-accent;
-    border: 0.1875rem solid $primary-accent;
+    border: 0.25rem solid $primary-accent;
     line-height: 0.9375rem;
-    font-weight: 700;
+
     border-radius: 62.4375rem;
     background-color: $primary-background;
     @include tablet {
