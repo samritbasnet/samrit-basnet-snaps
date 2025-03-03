@@ -81,12 +81,12 @@
 
   &__bottom {
     display: flex;
-    justify-content: space-around;
+    gap: 0.5rem;
     text-align: left;
+    color: $primary-accent;
   }
 
   &__copyright {
-    color: #757575;
     font-size: 0.875rem;
   }
 
@@ -96,7 +96,6 @@
   }
 
   &__legal-link {
-    color: #757575;
     text-decoration: none;
     font-size: 0.875rem;
     transition: color 0.2s ease;
