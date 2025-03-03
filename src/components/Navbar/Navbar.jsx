@@ -1,12 +1,15 @@
 import "./Navbar.scss";
-
-// eslint-disable-next-line react/prop-types
 const Navbar = ({ togglePanelOpen }) => {
+  console.log( togglePanelOpen );
   return (
     <nav className="navbar">
       <h1 className="navbar__logo logo"> Snaps</h1>
-
-      <button className="navbar__button" onClick={togglePanelOpen}>
+      <button
+        className={`navbar__button ${
+          togglePanelOpen ? "navbar__button--open" : ""
+        }`}
+        onClick={togglePanelOpen}
+      >
         Filters
         <svg
           width="15"

@@ -7,7 +7,7 @@
   padding: 0.5rem 1rem;
   color: $primary-accent;
   font-weight: 600;
-  border: 2px solid $border-color;
+  border: .125rem solid $border-color;
   border-radius: 0.625rem;
   background-color: white;
   cursor: pointer;
@@ -36,7 +36,7 @@
     background-color: $alternate-backgroundcolor;
     margin-bottom: 1.875rem;
     @include desktop{
-      
+
     }
   }
 

@@ -1,7 +1,7 @@
 import facebook from "../../assets/images/Icons/Facebook.svg";
-import twitter from "../../assets/images/Icons/X_twitter.svg";
 import instagram from "../../assets/images/Icons/instagram.svg";
-// import pinterest from "."
+import pinterest from "../../assets/images/Icons/Pinterest.svg";
+import twitter from "../../assets/images/Icons/X_twitter.svg";
 import "./Footer.scss";
 const Footer = () => {
   return (
@@ -53,19 +53,18 @@ const Footer = () => {
           <a href="www.facebook.com" className="footer__social-link">
             <img src={facebook} alt="facebook logo" />
           </a>
-          {/* x twiiter */}
+
           <a href="#" className="footer__social-link">
             <img src={twitter} alt="twitter logo" />
           </a>
-          {/* Instagram */}
+
           <a href="#" className="footer__social-link">
             <img src={instagram} alt="instagram logo" />
           </a>
-          {/* Pinterest
 
           <a href="#" className="footer__social-link">
-            <img src={pinterest} alt="pinterest logo"/>
-          </a> */}
+            <img src={pinterest} alt="pinterest logo" />
+          </a>
         </div>
 
         <div className="footer__bottom">
