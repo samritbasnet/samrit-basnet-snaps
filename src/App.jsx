@@ -12,17 +12,22 @@ function App() {
   const togglePanelOpen = () => {
     setIsTagsPanelOpen((prev) => !prev);
   };
-
   return (
     <>
       <Navbar togglePanelOpen={togglePanelOpen} />
 
-      {isTagsPanelOpen && (
-        <Tags selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
-      )}
-      <Hero />
+      <main className="content">
+        {isTagsPanelOpen && (
+          <div className="content__tag">
+            <Tags selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
+          </div>
+        )}
 
-      <Photos selectedTag={selectedTag} isTagsPanelOpen={isTagsPanelOpen} />
+        <section className="content__body">
+          <Hero />
+          <Photos selectedTag={selectedTag} isTagsPanelOpen={isTagsPanelOpen} />
+        </section>
+      </main>
       <Footer />
     </>
   );

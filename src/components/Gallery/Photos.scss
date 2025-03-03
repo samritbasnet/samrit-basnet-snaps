@@ -2,10 +2,8 @@
 @use "../../styles/partials/breakpoint" as *;
 .photos {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: 0.75rem;
   margin-top: 0.625rem;
   margin-bottom: 3.125rem;
   border-radius: 0.75rem;
@@ -13,13 +11,22 @@
   &__photo {
     border: 3px solid $border-color;
     border-radius: 1.25rem;
-    flex: 1 1 calc(33.33% - 16px);
     overflow: hidden;
     position: relative;
+
+    @include tablet {
+      width: calc(50% - 0.5 * 1rem);
+    }
+    @include desktop {
+      width: calc(33.3% - 0.66 * 1rem);
+      &--open {
+        width: calc(50% - 0.5 * 1rem);
+      }
+    }
   }
+
   &__container {
     position: relative;
-    height: 100%;
     background-color: $alternate-backgroundcolor;
   }
   &__author {
@@ -40,7 +47,6 @@
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-    padding: 0.5rem;
     &--label {
       background-color: white;
       padding: 0.5rem 1rem;
@@ -53,17 +59,12 @@
     padding: 0.4rem 0.8rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #333;
+    color: $alternate-text;
     cursor: pointer;
     transition: background-color 0.2s ease;
 
     &:hover {
       background-color: #d6d6d6;
     }
-  }
-
-  &.with-tags-open {
-    margin-right: 18.75rem;
-    gap: 32px;
   }
 }

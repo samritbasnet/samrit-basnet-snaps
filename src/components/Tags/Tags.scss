@@ -1,17 +1,9 @@
 @use "../../styles/partials/index" as *;
 @use "../../styles/partials/breakpoint" as *;
-.tags-panel {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  max-width: 100%;
-  padding: 4rem 0;
-  background-color: $alternate-backgroundcolor;
-  margin-bottom: 1.875rem;
-}
 
 .tags-panel__tag {
   display: inline-block;
+  font-style: "Outfit";
   padding: 0.5rem 1rem;
   color: $primary-accent;
   font-weight: 600;
@@ -20,6 +12,7 @@
   background-color: white;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin: 0;
 
   &:hover {
     background-color: $hover-color;
@@ -30,5 +23,27 @@
     background-color: $primary-accent;
     color: white;
     font-weight: bold;
+  }
+}
+.tags {
+  &__panel {
+    display: flex;
+    font-style: "Outfit";
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-width: 100%;
+    padding: 1rem 0 4rem;
+    background-color: $alternate-backgroundcolor;
+    margin-bottom: 1.875rem;
+    @include desktop{
+      
+    }
+  }
+
+  &__group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    background-color: $alternate-backgroundcolor;
   }
 }

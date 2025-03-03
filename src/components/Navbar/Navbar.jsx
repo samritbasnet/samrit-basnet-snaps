@@ -1,10 +1,10 @@
-import './Navbar.scss';
+import "./Navbar.scss";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ togglePanelOpen }) => {
   return (
     <nav className="navbar">
-      <h1 className="navbar__logo"> Snaps</h1>
+      <h1 className="navbar__logo logo"> Snaps</h1>
 
       <button className="navbar__button" onClick={togglePanelOpen}>
         Filters

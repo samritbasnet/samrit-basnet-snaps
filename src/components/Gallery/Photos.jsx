@@ -1,17 +1,22 @@
 import photos from "../../Data/photos.json";
 import "./Photos.scss";
 
-const Photos = ({ selectedTag, isTagPanelOpen }) => {
+const Photos = ({ selectedTag, isTagsPanelOpen }) => {
   const filteredPhotos = selectedTag
     ? photos.filter((photo) => photo.tags.includes(selectedTag))
     : photos;
 
-  console.log(filteredPhotos);
-  console.log(selectedTag);
+  console.log("istagspanels", isTagsPanelOpen);
+
   return (
-    <div className={`photos ${isTagPanelOpen ? "with-tags-open" : ""}`}>
+    <div className={`photos ${isTagsPanelOpen ? "with-tags-open" : ""}`}>
       {filteredPhotos.map((photo) => (
-        <article className="photos__photo" key={photo.id}>
+        <article
+          className={`photos__photo ${
+            isTagsPanelOpen ? "photos__photo--open" : ""
+          }`}
+          key={photo.id}
+        >
           <div className="photos__container">
             <img
               className="photos__image"
@@ -24,7 +29,9 @@ const Photos = ({ selectedTag, isTagPanelOpen }) => {
           </div>
           <div className="photos__tags">
             {photo.tags.map((tag, index) => (
-              <p className="photos__tags--label" key={index}>{tag}</p>
+              <p className="photos__tags--label" key={index}>
+                {tag}
+              </p>
             ))}
           </div>
         </article>
