@@ -24,7 +24,7 @@ const Photos = ({ selectedTag, isTagPanelOpen }) => {
           </div>
           <div className="photos__tags">
             {photo.tags.map((tag, index) => (
-              <p key={index}>{tag}</p>
+              <p className="photos__tags--label" key={index}>{tag}</p>
             ))}
           </div>
         </article>
