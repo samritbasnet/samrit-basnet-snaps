@@ -30,7 +30,6 @@ const Navbar = ({ togglePanelOpen }) => {
           </button>
         </li>
       </ul>
-      {/* <h1 className="navbar__logo logo"> Snaps</h1> */}
     </nav>
   );
 };

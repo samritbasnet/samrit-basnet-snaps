@@ -3,7 +3,7 @@ import './App.scss';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/Home/HomePage';
-import { PhotoPage } from './pages/PhotoDetails/PhotoPage';
+// import { PhotoPage } from './pages/PhotoDetails/PhotoPage';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/photo/:id" element={<PhotoPage />} />
+        {/* <Route path="/photo/:id" element={<PhotoPage />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer__container">
         <div className="footer__text-container">
           <div className="footer__brand">
-            <h1 className="footer__title ">Snaps</h1>
+            <h2 className="footer__title ">Snaps</h2>
           </div>
           <div className="footer__nav">
             <ul className="footer__list">

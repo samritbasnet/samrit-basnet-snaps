@@ -18,7 +18,10 @@ const HomePage = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}${API_KEY}`);
+        const response = await axios.get(
+          `${BASE_URL}photos?api_key=${API_KEY}`
+        );
+        console.log(response.data);
         setPhotosData(response.data.results);
       } catch (error) {
         console.error(error);
