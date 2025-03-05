@@ -9,13 +9,11 @@ import Navbar from './components/Navbar/Navbar';
 import Tags from './components/Tags/Tags';
 import { API_KEY, BASE_URL } from './config';
 import { HomePage } from './pages/Home/Home';
-import { PhotoDetailsPage } from './pages/PhotoDetails/PhotoDetails';
+import { PhotoPage } from './pages/PhotoDetails/PhotoPage';
 function App() {
   const [selectedTag, setSelectedTag] = useState(null);
   const [isTagsPanelOpen, setIsTagsPanelOpen] = useState(false);
-  const togglePanelOpen = () => {
-    setIsTagsPanelOpen((prev) => !prev);
-  };
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -32,7 +30,7 @@ function App() {
       <Navbar togglePanelOpen={togglePanelOpen} />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/photo/:id" element={<PhotoDetailsPage />} />
+        <Route path="/photo/:id" element={<PhotoPage />} />
       </Routes>
 
       <main className="content">
