@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 const Navbar = ({ togglePanelOpen }) => {
-  console.log(togglePanelOpen);
   return (
     <nav className="navbar">
       <ul className="navbar__ul">
