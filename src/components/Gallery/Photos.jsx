@@ -6,9 +6,8 @@ const Photos = ({ selectedTag, isTagsPanelOpen }) => {
     ? photos.filter((photo) => photo.tags.includes(selectedTag))
     : photos;
 
-  console.log("istagspanels", isTagsPanelOpen);
-
   return (
+
     <div className={`photos ${isTagsPanelOpen ? "with-tags-open" : ""}`}>
       {filteredPhotos.map((photo) => (
         <article

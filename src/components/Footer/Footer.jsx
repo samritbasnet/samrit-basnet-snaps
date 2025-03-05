@@ -54,15 +54,15 @@ const Footer = () => {
             <img src={facebook} alt="facebook logo" />
           </a>
 
-          <a href="#" className="footer__social-link">
+          <a href="wwww.twitter.com" className="footer__social-link">
             <img src={twitter} alt="twitter logo" />
           </a>
 
-          <a href="#" className="footer__social-link">
+          <a href="www.instagram.com" className="footer__social-link">
             <img src={instagram} alt="instagram logo" />
           </a>
 
-          <a href="#" className="footer__social-link">
+          <a href="www.pinterest.com" className="footer__social-link">
             <img src={pinterest} alt="pinterest logo" />
           </a>
         </div>
