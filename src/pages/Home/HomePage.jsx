@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import {Link, useNavigate } from 'react-router-dom';
 import Photos from '../../components/Gallery/Photos';
 import Hero from '../../components/Hero/Hero';
 import Tags from '../../components/Tags/Tags';
@@ -9,8 +10,8 @@ import './Home.scss';
 const HomePage = () => {
   const [selectedTag, setSelectedTag] = useState(null);
   const [isTagsPanelOpen, setIsTagsPanelOpen] = useState(false);
-  const [photosData, setPhotosData] = useState([]);
-
+  const [photos, setPhotos] = useState([]);
+  const navigate = useNavigate();
   const togglePanelOpen = () => {
     setIsTagsPanelOpen((prev) => !prev);
   };
@@ -21,14 +22,17 @@ const HomePage = () => {
         const response = await axios.get(
           `${BASE_URL}photos?api_key=${API_KEY}`
         );
-        console.log(response.data);
-        setPhotosData(response.data.results);
+        setPhotos(response.data);
       } catch (error) {
         console.error(error);
       }
     };
     getData();
   }, []);
+
+  const handlePhotoClick = (id) => {
+    navigate(`/photo/${id}`);
+  };
 
   return (
     <main className="content">
@@ -37,13 +41,20 @@ const HomePage = () => {
           <Tags selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
         </div>
       )}
+
       <section className="content__body">
         <Hero />
-        <Photos
-          selectedTag={selectedTag}
-          isTagsPanelOpen={isTagsPanelOpen}
-          photos={photosData}
-        />
+        <div className="content__container">
+          {photos.map((photo) => (
+            <Link
+              key={photo.id}
+              onClick={() => handlePhotoClick(photo.id)}
+              className="photo-card"
+            >
+              <Photos photo={photo} />
+            </Link>
+          ))}
+        </div>
       </section>
     </main>
   );

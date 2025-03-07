@@ -1,5 +1,5 @@
-@use "../../styles/partials/index" as *;
-@use "../../styles/partials/breakpoint" as *;
+@use '../../styles/partials/index' as *;
+@use '../../styles/partials/breakpoint' as *;
 .photos {
   display: flex;
   flex-wrap: wrap;
