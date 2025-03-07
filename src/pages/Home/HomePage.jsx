@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import {Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Photos from '../../components/Gallery/Photos';
 import Hero from '../../components/Hero/Hero';
 import Tags from '../../components/Tags/Tags';
@@ -11,7 +11,7 @@ const HomePage = () => {
   const [selectedTag, setSelectedTag] = useState(null);
   const [isTagsPanelOpen, setIsTagsPanelOpen] = useState(false);
   const [photos, setPhotos] = useState([]);
-  const navigate = useNavigate();
+
   const togglePanelOpen = () => {
     setIsTagsPanelOpen((prev) => !prev);
   };
@@ -24,15 +24,11 @@ const HomePage = () => {
         );
         setPhotos(response.data);
       } catch (error) {
-        console.error(error);
+        console.error('Error fetching photos:', error);
       }
     };
     getData();
   }, []);
-
-  const handlePhotoClick = (id) => {
-    navigate(`/photo/${id}`);
-  };
 
   return (
     <main className="content">
@@ -45,15 +41,19 @@ const HomePage = () => {
       <section className="content__body">
         <Hero />
         <div className="content__container">
-          {photos.map((photo) => (
-            <Link
-              key={photo.id}
-              onClick={() => handlePhotoClick(photo.id)}
-              className="photo-card"
-            >
-              <Photos photo={photo} />
-            </Link>
-          ))}
+          {photos.length > 0 ? (
+            photos.map((photo) => (
+              <Link
+                key={photo.id}
+                to={`/photo/${photo.id}`}
+                className="photo-card"
+              >
+                <Photos photo={photo} />
+              </Link>
+            ))
+          ) : (
+            <p>Loading photos...</p>
+          )}
         </div>
       </section>
     </main>

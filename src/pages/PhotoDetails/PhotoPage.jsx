@@ -1,28 +1,32 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { API_KEY, BASE_URL } from '../../config';
 
-const PhotoPage = ({ photos }) => {
+const PhotoPage = () => {
   const { id } = useParams();
   const [photo, setPhoto] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [name, setName] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPhotoDetails = async () => {
       try {
         const photoResponse = await axios.get(
-          `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}`
+          `${BASE_URL}photos/${id}?api_key=${API_KEY}`
         );
         setPhoto(photoResponse.data);
 
         const commentResponse = await axios.get(
-          `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments`
+          `${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`
         );
         setComments(commentResponse.data);
       } catch (error) {
-        console.error(`Error fetching data:`, error);
+        console.error('Error fetching photo details:', error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchPhotoDetails();
@@ -30,25 +34,21 @@ const PhotoPage = ({ photos }) => {
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    if (!name.trim() || !newComment.trim()) return;
+    if (!name || !newComment) return;
 
     try {
-      await axios.post(
-        `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments`,
-        {
-          name,
-          body: newComment,
-        }
-      );
+      await axios.post(`${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`, {
+        name,
+        comment: newComment, 
+      });
 
       setNewComment('');
       setName('');
 
-      // Fetch updated comments
       const response = await axios.get(
-        `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments`
+        `${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`
       );
-      setComments(response.data);
+      setComments(response.data.reverse()); // ✅ New comments appear at the top
     } catch (error) {
       console.error('Error submitting comment:', error);
     }
@@ -56,20 +56,23 @@ const PhotoPage = ({ photos }) => {
 
   return (
     <div>
-      {photo ? (
+      {loading ? (
+        <p>Loading photo details...</p>
+      ) : photo ? (
         <div>
-          <h2>{photo.title}</h2>
           <img src={photo.photo} alt={photo.photoDescription} />
           <p>{photo.photoDescription}</p>
-          <p>Photographer: {photo.photographer}</p>
-          <p>Date: {new Date(photo.date).toLocaleDateString()}</p>
+          <p>Photo by: {photo.photographer}</p>
+          {photo.timestamp && (
+            <p>Date: {new Date(photo.timestamp).toLocaleDateString()}</p>
+          )}
 
           <h2>Comments</h2>
           {comments.length > 0 ? (
             <ul>
               {comments.map((comment) => (
                 <li key={comment.id}>
-                  <strong>{comment.name}:</strong> {comment.body}
+                  <strong>{comment.name}:</strong> {comment.comment}{' '}
                 </li>
               ))}
             </ul>
@@ -96,7 +99,7 @@ const PhotoPage = ({ photos }) => {
           </form>
         </div>
       ) : (
-        <p>Loading photo details...</p>
+        <p>Error loading photo details. Please try again.</p>
       )}
     </div>
   );
