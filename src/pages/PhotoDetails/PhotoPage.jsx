@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Arrow from '../../assets/images/Icons/Arrow.svg';
 import Like_Outline from '../../assets/images/Icons/Like_Outline.svg';
 import { API_KEY, BASE_URL } from '../../config';
+import './PhotoPage.scss';
 
 const PhotoPage = () => {
   const { id } = useParams();
@@ -26,7 +28,6 @@ const PhotoPage = () => {
         );
         setComments(commentResponse.data.reverse());
       } catch (error) {
-        å;
         console.error('Error fetching photo details:', error);
       } finally {
         setLoading(false);
@@ -60,9 +61,17 @@ const PhotoPage = () => {
   return (
     <div>
       <div className="photo-page__nav">
-        <button onClick={() => navigate('/')} className="photo-page__back-btn">
-          Home
-        </button>
+        <ul>
+          <img
+            src={Arrow}
+            alt="Back to Home"
+            onClick={() => navigate('/')}
+            style={{ cursor: 'pointer' }}
+          />
+          <li onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+            Home
+          </li>
+        </ul>
       </div>
       {loading ? (
         <p>Loading photo details...</p>
