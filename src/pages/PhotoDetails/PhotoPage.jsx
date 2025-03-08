@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import Like_Outline from '../../assets/images/Icons/Like_Outline.svg';
 import { API_KEY, BASE_URL } from '../../config';
 
 const PhotoPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [photo, setPhoto] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
@@ -22,8 +24,9 @@ const PhotoPage = () => {
         const commentResponse = await axios.get(
           `${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`
         );
-        setComments(commentResponse.data);
+        setComments(commentResponse.data.reverse());
       } catch (error) {
+        å;
         console.error('Error fetching photo details:', error);
       } finally {
         setLoading(false);
@@ -39,7 +42,7 @@ const PhotoPage = () => {
     try {
       await axios.post(`${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`, {
         name,
-        comment: newComment, 
+        comment: newComment,
       });
 
       setNewComment('');
@@ -48,7 +51,7 @@ const PhotoPage = () => {
       const response = await axios.get(
         `${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`
       );
-      setComments(response.data.reverse()); // ✅ New comments appear at the top
+      setComments(response.data.reverse());
     } catch (error) {
       console.error('Error submitting comment:', error);
     }
@@ -56,15 +59,24 @@ const PhotoPage = () => {
 
   return (
     <div>
+      <div className="photo-page__nav">
+        <button onClick={() => navigate('/')} className="photo-page__back-btn">
+          Home
+        </button>
+      </div>
       {loading ? (
         <p>Loading photo details...</p>
       ) : photo ? (
         <div>
           <img src={photo.photo} alt={photo.photoDescription} />
-          <p>{photo.photoDescription}</p>
           <p>Photo by: {photo.photographer}</p>
+          <p>{photo.tags}</p>
+          <p>
+            <img src={Like_Outline} />
+            {photo.likes}
+          </p>
           {photo.timestamp && (
-            <p>Date: {new Date(photo.timestamp).toLocaleDateString()}</p>
+            <p>{new Date(photo.timestamp).toLocaleDateString()}</p>
           )}
 
           <h2>Comments</h2>

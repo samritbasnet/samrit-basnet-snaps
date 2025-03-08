@@ -1,11 +1,11 @@
 import './Photos.scss';
+import Tags from '../Tags/Tags';
 
 const Photos = ({ photo }) => {
   return (
     <div className="photos__container">
-      <h2>{photo.photoDescription}</h2>
       <img
-        className="photos__image"
+        className="photos__photo"
         src={photo.photo}
         alt={photo.photoDescription}
       />

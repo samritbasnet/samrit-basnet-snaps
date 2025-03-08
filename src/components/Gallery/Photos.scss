@@ -1,5 +1,6 @@
 @use '../../styles/partials/index' as *;
 @use '../../styles/partials/breakpoint' as *;
+
 .photos {
   display: flex;
   flex-wrap: wrap;
@@ -13,57 +14,63 @@
     border-radius: 1.25rem;
     overflow: hidden;
     position: relative;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     @include tablet {
       width: calc(50% - 0.5 * 1rem);
     }
     @include desktop {
       width: calc(33.3% - 0.66 * 1rem);
+
       &--open {
         width: calc(50% - 0.5 * 1rem);
       }
     }
   }
+
   &__container {
     position: relative;
     background-color: $alternate-backgroundcolor;
+    padding: 1rem; // Ensure spacing
+    border-radius: 1rem;
   }
+
   &__author {
     position: absolute;
     bottom: 0.3125rem;
     right: 0;
     background-color: $alternate-backgroundcolor;
-    padding: 0.1rem 1rem;
+    padding: 0.3rem 1rem;
     border-top-left-radius: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
   }
-  &__image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+
   &__tags {
     background-color: $alternate-backgroundcolor;
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-    &--label {
-      background-color: white;
-      padding: 0.5rem 1rem;
-      border: 0.125rem solid $border-color;
-      border-radius: 0.75rem;
-    }
-  }
-  &__tag {
-    border-radius: 1.5rem;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: $alternate-text;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    padding: 0.5rem;
 
-    &:hover {
-      background-color: #d6d6d6;
+    &__tag {
+      border-radius: 1.5rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $alternate-text;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #d6d6d6;
+      }
     }
   }
 }
