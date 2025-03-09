@@ -12,19 +12,10 @@ const Navbar = ({ togglePanelOpen }) => {
         Snaps
       </NavLink>
       {location.pathname.includes('/photo') ? (
-        <div>
-          <div>
-            <div>
-              <img
-                src={Arrow}
-                alt="Back to Home"
-                onClick={() => navigate('/')}
-                style={{ cursor: 'pointer' }}
-              />
-              <Link to={'/'}>Home</Link>
-            </div>
-          </div>
-        </div>
+        <Link className="navbar__home" to={'/'}>
+          <img src={Arrow} alt="Back to Home" />
+          <p>Home</p>
+        </Link>
       ) : (
         <div className="home">
           <button

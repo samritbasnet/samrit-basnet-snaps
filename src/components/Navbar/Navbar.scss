@@ -6,7 +6,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
   justify-content: space-between;
   padding: 1rem 0.5625rem;
 
@@ -20,6 +19,13 @@
       line-height: 2.5rem;
       font-weight: 400;
     }
+  }
+
+  &__home {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    color: $primary-accent;
   }
 
   &__button {
