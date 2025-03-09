@@ -7,12 +7,12 @@ import './PhotoPage.scss';
 
 const PhotoPage = () => {
   const { id } = useParams();
-
   const [photo, setPhoto] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(true);
+  const [inputError, setInputError] = useState(false);
 
   useEffect(() => {
     const fetchPhotoDetails = async () => {
@@ -35,14 +35,16 @@ const PhotoPage = () => {
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !newComment) return;
-
+    if (!name || !newComment) {
+      setInputError(true);
+      return;
+    }
     try {
       await axios.post(`${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`, {
         name,
         comment: newComment,
       });
-
+      setInputError(false);
       setNewComment('');
       setName('');
 
@@ -52,17 +54,18 @@ const PhotoPage = () => {
       console.error('Error submitting comment:', error);
     }
   };
-
   return (
     <div className="photos__container">
       {loading ? (
         <p>Loading photo details...</p>
       ) : photo ? (
-        <div>
+        <div className="photo-single">
+          {console.log('test')}
           <img className="photos__photo" src={photo.photo} alt={photo.photoDescription} />
-          <p>{photo.tags}</p>
+          {photo.tags.map((tag) => {
+            return (<p className="photo-single__tag">{tag}</p>)
+          })}
           <p>Photo by: {photo.photographer}</p>
-
           <p>
             <img src={Like_Outline} />
             {photo.likes}
@@ -74,13 +77,13 @@ const PhotoPage = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your Name"
-              required
+              className={`inputvalid ${inputError && 'inputvalid--error'}`}
             />
             <textarea
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="Your Comment"
-              required
+              className={`inputvalid ${inputError && 'inputvalid--error'}`}
             />
             <button type="submit">Submit</button>
           </form>

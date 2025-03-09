@@ -8,11 +8,9 @@ import PhotoPage from './pages/PhotoDetails/PhotoPage';
 
 function App() {
   const [isTagsPanelOpen, setIsTagsPanelOpen] = useState(false);
-  // const [selectedTag, setSelectedTag] = useState(null);
 
   const togglePanelOpen = () => {
     setIsTagsPanelOpen((prev) => !prev);
-    console.log(isTagsPanelOpen);
   };
 
   return (

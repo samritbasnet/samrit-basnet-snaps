@@ -4,7 +4,6 @@ import './Navbar.scss';
 const Navbar = ({ togglePanelOpen }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.pathname.includes('/photo '));
 
   return (
     <nav className="navbar">

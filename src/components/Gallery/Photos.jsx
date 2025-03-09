@@ -5,7 +5,7 @@ const Photos = ({ photo }) => {
     <div className="photos__container">
       <div className="photos__card">
         <img className="photos__photo" src={photo.photo} alt={photo.photoDescription} />
-        <p className="photos__author">Photographer:{photo.photographer}</p>
+        <p className="photos__author">{photo.photographer}</p>
       </div>
 
       <div className="photos__tags">

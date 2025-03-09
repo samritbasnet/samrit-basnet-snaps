@@ -27,19 +27,39 @@
       }
     }
   }
+
   &__tags {
+    background-color: $alternate-backgroundcolor;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1rem;
+    padding: 0.5rem;
 
     &-tag {
       background: white;
       color: white;
-      padding: 0.3rem 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border: 2px solid $primary-accent;
+      background-color:$alternate-backgroundcolor;
       border-radius: 1.5rem;
       font-size: 0.875rem;
       font-weight: 600;
     }
+  }
+}
+.inputvalid {
+  border-color: green;
+  &--error {
+    border-color: red;
+  }
+}
+.photo-single {
+  // display: flex;
+  
+  &__tag {
+    display: inline-block;
+    border: 5px solid $alternate-backgroundcolor;
+    gap:.625rem;
   }
 }

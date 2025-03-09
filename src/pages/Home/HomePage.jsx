@@ -35,13 +35,15 @@ const HomePage = ({ isTagsPanelOpen }) => {
   return (
     <div className="hompage">
       <section className="homepage__body">
-        {isTagsPanelOpen ? <Tags /> : undefined}
+        {isTagsPanelOpen ? (
+          <Tags selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
+        ) : undefined}
         <Hero />
         <div className="homepage__container">
           {filteredPhotos.length > 0 ? (
             filteredPhotos.map((photo) => (
-              <div className="homepage__photoslist">
-                <Link key={photo.id} to={`/photo/${photo.id}`} className="homepage__card">
+              <div className="homepage__photoslist" key={photo.id}>
+                <Link to={`/photo/${photo.id}`} className="homepage__card">
                   <Photos photo={photo} />
                 </Link>
               </div>
