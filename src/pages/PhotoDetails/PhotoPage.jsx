@@ -18,9 +18,7 @@ const PhotoPage = () => {
   useEffect(() => {
     const fetchPhotoDetails = async () => {
       try {
-        const photoResponse = await axios.get(
-          `${BASE_URL}photos/${id}?api_key=${API_KEY}`
-        );
+        const photoResponse = await axios.get(`${BASE_URL}photos/${id}?api_key=${API_KEY}`);
         setPhoto(photoResponse.data);
 
         const commentResponse = await axios.get(
@@ -49,9 +47,7 @@ const PhotoPage = () => {
       setNewComment('');
       setName('');
 
-      const response = await axios.get(
-        `${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`
-      );
+      const response = await axios.get(`${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`);
       setComments(response.data.reverse());
     } catch (error) {
       console.error('Error submitting comment:', error);
@@ -78,30 +74,14 @@ const PhotoPage = () => {
       ) : photo ? (
         <div>
           <img src={photo.photo} alt={photo.photoDescription} />
-          <p>Photo by: {photo.photographer}</p>
           <p>{photo.tags}</p>
+          <p>Photo by: {photo.photographer}</p>
+
           <p>
             <img src={Like_Outline} />
             {photo.likes}
           </p>
-          {photo.timestamp && (
-            <p>{new Date(photo.timestamp).toLocaleDateString()}</p>
-          )}
-
-          <h2>Comments</h2>
-          {comments.length > 0 ? (
-            <ul>
-              {comments.map((comment) => (
-                <li key={comment.id}>
-                  <strong>{comment.name}:</strong> {comment.comment}{' '}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No comments yet.</p>
-          )}
-
-          <h3>Add a Comment</h3>
+          {photo.timestamp && <p>{new Date(photo.timestamp).toLocaleDateString()}</p>}
           <form onSubmit={handleCommentSubmit}>
             <input
               type="text"
@@ -118,6 +98,22 @@ const PhotoPage = () => {
             />
             <button type="submit">Submit</button>
           </form>
+          <h2>{comments.length} Comments</h2>
+          <hr />
+          <ul className="comments-list">
+            {comments.map((comment) => (
+              <li key={comment.id} className="comment-item">
+                <div className="comment-header">
+                  <strong className="comment-name">{comment.name}</strong>
+                  <span className="comment-date">
+                    {new Date(comment.timestamp).toLocaleDateString()}
+                  </span>
+                </div>
+                <p className="comment-text">{comment.comment}</p>
+                <hr />
+              </li>
+            ))}
+          </ul>
         </div>
       ) : (
         <p>Error loading photo details. Please try again.</p>

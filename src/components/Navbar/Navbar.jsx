@@ -9,9 +9,7 @@ const Navbar = ({ togglePanelOpen }) => {
         </li>
         <li>
           <button
-            className={`navbar__button ${
-              togglePanelOpen ? 'navbar__button--open' : ''
-            }`}
+            className={`navbar__button ${togglePanelOpen ? 'navbar__button--open' : ''}`}
             onClick={togglePanelOpen}
           >
             Filters
