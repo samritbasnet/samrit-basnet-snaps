@@ -1,14 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import Arrow from '../../assets/images/Icons/Arrow.svg';
+import { useParams } from 'react-router-dom';
 import Like_Outline from '../../assets/images/Icons/Like_Outline.svg';
 import { API_KEY, BASE_URL } from '../../config';
 import './PhotoPage.scss';
 
 const PhotoPage = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+
   const [photo, setPhoto] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
@@ -56,19 +55,6 @@ const PhotoPage = () => {
 
   return (
     <div>
-      <div className="photo-page__nav">
-        <ul>
-          <img
-            src={Arrow}
-            alt="Back to Home"
-            onClick={() => navigate('/')}
-            style={{ cursor: 'pointer' }}
-          />
-          <li onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-            Home
-          </li>
-        </ul>
-      </div>
       {loading ? (
         <p>Loading photo details...</p>
       ) : photo ? (
