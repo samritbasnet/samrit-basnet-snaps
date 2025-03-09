@@ -18,5 +18,4 @@ const Photos = ({ photo }) => {
     </div>
   );
 };
-
 export default Photos;

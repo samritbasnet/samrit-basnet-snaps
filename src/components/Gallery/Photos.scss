@@ -21,17 +21,6 @@
       height: 100%;
       object-fit: cover;
     }
-
-    // @include tablet {
-    //   width: calc(50% - 0.5 * 1rem);
-    // }
-    // @include desktop {
-    //   width: calc(33.3% - 0.66 * 1rem);
-
-    //   &--open {
-    //     width: calc(50% - 0.5 * 1rem);
-    //   }
-    // }
   }
   &__card {
     position: relative;
