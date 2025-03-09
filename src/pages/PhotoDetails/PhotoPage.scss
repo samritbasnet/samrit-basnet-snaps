@@ -3,7 +3,6 @@
 
 .photo-page {
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 2rem;
   background-color: $primary-background;
@@ -41,7 +40,7 @@
       color: white;
       padding: 0.4rem 0.8rem;
       border: 2px solid $primary-accent;
-      background-color:$alternate-backgroundcolor;
+
       border-radius: 1.5rem;
       font-size: 0.875rem;
       font-weight: 600;
@@ -55,11 +54,9 @@
   }
 }
 .photo-single {
-  // display: flex;
-  
   &__tag {
     display: inline-block;
     border: 5px solid $alternate-backgroundcolor;
-    gap:.625rem;
+    gap: 0.625rem;
   }
 }

@@ -10,7 +10,7 @@ function App() {
   const [isTagsPanelOpen, setIsTagsPanelOpen] = useState(false);
 
   const togglePanelOpen = () => {
-    setIsTagsPanelOpen((prev) => !prev);
+    setIsTagsPanelOpen(prev => !prev);
   };
 
   return (

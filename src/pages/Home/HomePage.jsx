@@ -27,7 +27,7 @@ const HomePage = ({ isTagsPanelOpen }) => {
 
   useEffect(() => {
     if (selectedTag) {
-      setFilteredPhotos(photos.filter((photo) => photo.tags.includes(selectedTag)));
+      setFilteredPhotos(photos.filter(photo => photo.tags.includes(selectedTag)));
     } else {
       setFilteredPhotos(photos);
     }
@@ -41,7 +41,7 @@ const HomePage = ({ isTagsPanelOpen }) => {
         <Hero />
         <div className="homepage__container">
           {filteredPhotos.length > 0 ? (
-            filteredPhotos.map((photo) => (
+            filteredPhotos.map(photo => (
               <div className="homepage__photoslist" key={photo.id}>
                 <Link to={`/photo/${photo.id}`} className="homepage__card">
                   <Photos photo={photo} />
