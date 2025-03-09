@@ -33,24 +33,25 @@ const HomePage = ({ isTagsPanelOpen }) => {
     }
   }, [selectedTag, photos]);
   return (
-    <main className="content">
-      <section className="content__body">
+    <div className="hompage">
+      <section className="homepage__body">
         {isTagsPanelOpen ? <Tags /> : undefined}
         <Hero />
-
-        <div className="content__container">
+        <div className="homepage__container">
           {filteredPhotos.length > 0 ? (
             filteredPhotos.map((photo) => (
-              <Link key={photo.id} to={`/photo/${photo.id}`} className="photo-card">
-                <Photos photo={photo} />
-              </Link>
+              <div className="homepage__photoslist">
+                <Link key={photo.id} to={`/photo/${photo.id}`} className="homepage__card">
+                  <Photos photo={photo} />
+                </Link>
+              </div>
             ))
           ) : (
             <p>No photos match this filter.</p>
           )}
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

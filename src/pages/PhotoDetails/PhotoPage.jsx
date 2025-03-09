@@ -54,12 +54,12 @@ const PhotoPage = () => {
   };
 
   return (
-    <div>
+    <div className="photos__container">
       {loading ? (
         <p>Loading photo details...</p>
       ) : photo ? (
         <div>
-          <img src={photo.photo} alt={photo.photoDescription} />
+          <img className="photos__photo" src={photo.photo} alt={photo.photoDescription} />
           <p>{photo.tags}</p>
           <p>Photo by: {photo.photographer}</p>
 

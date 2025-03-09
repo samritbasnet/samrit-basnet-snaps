@@ -1,3 +1,26 @@
-.content {
-  display: flex;
+@use '../../styles/partials/index' as *;
+@use '../../styles/partials/breakpoint' as *;
+
+.homepage {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  &__photoslist {
+    width: 100%;
+    display: flex;
+    @include tablet {
+      width: calc(50% - 0.5 * 1rem);
+    }
+    @include desktop {
+      width: calc(33.3% - 0.66 * 1rem);
+    }
+  }
 }
