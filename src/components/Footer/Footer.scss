@@ -1,10 +1,9 @@
-@use "../../styles/partials/index" as *;
-@use "../../styles/partials/breakpoint" as *;
+@use '../../styles/partials/index' as *;
+@use '../../styles/partials/breakpoint' as *;
 .footer {
   background-color: #f0f7f5;
   padding: 3rem 1rem 2.5rem;
-  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   &__container {
     margin: 0 auto;
     display: flex;
@@ -26,7 +25,7 @@
     font-weight: 500;
     color: #1a1a1a;
     margin: 0 0 2rem;
-    font-family: "Newsreader", serif;
+    font-family: 'Newsreader', serif;
   }
   &__nav {
     display: flex;
@@ -58,8 +57,20 @@
   }
   &__social {
     display: flex;
+
     gap: 1.5rem;
     margin-bottom: 2.5rem;
+    &--desktop {
+      display: none;
+      @include tablet {
+        display: flex;
+      }
+    }
+    &--mobile {
+      @include tablet {
+        display: none;
+      }
+    }
   }
   &__social-link {
     display: flex;

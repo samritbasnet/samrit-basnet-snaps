@@ -73,9 +73,11 @@ const PhotoPage = () => {
                   <img src={Like_Outline} />
                   {photo.likes} likes
                 </p>
-                <p className="photos-section__photographer">Photo by: {photo.photographer}</p>
+                <p className="photos-section__photographer mobile">
+                  Photo by: {photo.photographer}
+                </p>
               </div>
-
+              <p className="photos-section__photographer desktop">Photo by: {photo.photographer}</p>
               {photo.timestamp && (
                 <p className="photo__date">{new Date(photo.timestamp).toLocaleDateString()}</p>
               )}
@@ -108,22 +110,24 @@ const PhotoPage = () => {
                 </button>
               </div>
             </form>
-            <h2 className="photo__comments-title">{comments.length} Comments</h2>
+            <h2 className="photos__comments-title">{comments.length} Comments</h2>
             <hr />
-            <ul className="photo__comments-list">
-              {comments.map(comment => (
-                <li key={comment.id} className="photo__comment-item">
-                  <div className="photo__comment-header">
-                    <strong className="photo__comment-name">{comment.name}</strong>
-                    <span className="photo__comment-date">
-                      {new Date(comment.timestamp).toLocaleDateString()}
-                    </span>
-                  </div>
-                  <p className="comment-text">{comment.comment}</p>
-                  <hr className="photo__divider" />
-                </li>
-              ))}
-            </ul>
+            <div className="photos__comments-comment">
+              <ul className="photo__comments-list">
+                {comments.map(comment => (
+                  <li key={comment.id} className="photo__comment-item">
+                    <div className="photo__comment-header">
+                      <strong className="photo__comment-name">{comment.name}</strong>
+                      <span className="photo__comment-date">
+                        {new Date(comment.timestamp).toLocaleDateString()}
+                      </span>
+                    </div>
+                    <p className="comment-text">{comment.comment}</p>
+                    <hr className="photo__divider" />
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       ) : (

@@ -1,67 +1,10 @@
 @use '../../styles/partials/index' as *;
 @use '../../styles/partials/breakpoint' as *;
 
-// .photos__section {
-//   padding: 2rem;
-
-//   &__card {
-//     background-color: #eef5f1;
-//     border-radius: 1.25rem;
-
-//     &__image {
-//       border-radius: 0.75rem;
-//       margin-bottom: 1rem;
-//     }
-//   }
-
-//   &__info {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     font-size: 0.875rem;
-//     color: $primary-accent;
-//     margin-bottom: 1rem;
-
-//     &--likes {
-//       display: flex;
-//       align-items: center;
-//       gap: 0.5rem;
-
-//       img {
-//         width: 20px;
-//         height: 20px;
-//       }
-//     }
-//   }
-
-//   &__tags {
-//     background-color: $alternate-backgroundcolor;
-//     display: flex;
-//     flex-wrap: wrap;
-//     gap: 0.5rem;
-//     margin-bottom: 1rem;
-//     padding: 0.5rem;
-
-//     &-tag {
-//       background: white;
-//       color: white;
-//       padding: 0.4rem 0.8rem;
-//       border: 2px solid $primary-accent;
-
-//       border-radius: 1.5rem;
-//       font-size: 0.875rem;
-//       font-weight: 600;
-//     }
-//   }
-// }
-// .inputvalid {
-//   border-color: green;
-//   &--error {
-//     border-color: red;
-//   }
-// }
-
 .photos-section {
+  @include desktop {
+    padding: 0 10rem;
+  }
   &__container {
     border-radius: 8px;
     padding: 2rem;
@@ -70,9 +13,12 @@
     display: flex;
     background-color: $alternate-backgroundcolor;
     flex-direction: column;
-    width: 50%;
-    border: 1px solid red;
-    border-radius: 6px;
+    width: 100%;
+    margin-bottom: 3rem;
+    border: 1px solid $border-color;
+    border-radius: 0.75rem;
+    @include tablet {
+    }
   }
   &__tags {
     display: flex;
@@ -85,7 +31,6 @@
   &__image {
     width: 100%;
     height: auto;
-    border-radius: 6px;
     object-fit: cover;
     margin-bottom: 0;
   }
@@ -105,6 +50,10 @@
   }
   &__likes {
     margin: 0;
+
+    img {
+      margin-right: 0.5rem;
+    }
   }
   &__photographer {
     margin: 0;
@@ -135,7 +84,7 @@
     input {
       font-family: inherit;
       width: 100%;
-      border: 2px solid green;
+      border: 2px solid $border-color;
       border-radius: 0.5rem;
       padding: 1rem;
     }
@@ -146,7 +95,7 @@
     flex-direction: column;
     textarea {
       border-radius: 0.5rem;
-      border: 0.125rem solid green;
+      border: 0.125rem solid $border-color;
       font-family: inherit;
       resize: none;
       width: 100%;
@@ -155,11 +104,48 @@
     }
   }
   &__button {
-    background-color: green;
+    background-color: $primary-accent;
     align-self: flex-end;
-    width: 10%;
-    padding: 0.375rem 0.75rem;
+    width: 18%;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding: 0.5rem 1rem;
     border-radius: 0.375rem;
     color: white;
+    border: 1px solid $border-color;
+  }
+}
+
+.photo__comments-list {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+.photos__comments-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.photo__comment-header {
+  display: flex;
+  font-size: 0.75rem;
+  justify-content: space-between;
+  color: $primary-accent;
+}
+.photos__comments-title {
+  font-size: 1rem;
+}
+.desktop {
+  display: none;
+
+  @include tablet {
+    display: inline-block;
+  }
+}
+.mobile {
+  @include tablet {
+    display: none;
   }
 }

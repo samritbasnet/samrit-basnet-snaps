@@ -1,8 +1,8 @@
-import facebook from "../../assets/images/Icons/Facebook.svg";
-import instagram from "../../assets/images/Icons/instagram.svg";
-import pinterest from "../../assets/images/Icons/Pinterest.svg";
-import twitter from "../../assets/images/Icons/X_twitter.svg";
-import "./Footer.scss";
+import facebook from '../../assets/images/Icons/Facebook.svg';
+import instagram from '../../assets/images/Icons/instagram.svg';
+import pinterest from '../../assets/images/Icons/Pinterest.svg';
+import twitter from '../../assets/images/Icons/X_twitter.svg';
+import './Footer.scss';
 const Footer = () => {
   return (
     <footer className="footer">
@@ -47,22 +47,40 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+            <div className="footer__social footer__social--desktop">
+              <a href="https://www.facebook.com" className="footer__social-link">
+                <img src={facebook} alt="facebook logo" />
+              </a>
+
+              <a href="https://wwww.twitter.com" className="footer__social-link">
+                <img src={twitter} alt="twitter logo" />
+              </a>
+
+              <a href="https://www.instagram.com" className="footer__social-link">
+                <img src={instagram} alt="instagram logo" />
+              </a>
+
+              <a href="https://www.pinterest.com" className="footer__social-link">
+                <img src={pinterest} alt="pinterest logo" />
+              </a>
+            </div>
           </div>
         </div>
-        <div className="footer__social">
-          <a href="www.facebook.com" className="footer__social-link">
+
+        <div className="footer__social footer__social--mobile">
+          <a href="https://www.facebook.com" className="footer__social-link">
             <img src={facebook} alt="facebook logo" />
           </a>
 
-          <a href="wwww.twitter.com" className="footer__social-link">
+          <a href="https://wwww.twitter.com" className="footer__social-link">
             <img src={twitter} alt="twitter logo" />
           </a>
 
-          <a href="www.instagram.com" className="footer__social-link">
+          <a href="https://www.instagram.com" className="footer__social-link">
             <img src={instagram} alt="instagram logo" />
           </a>
 
-          <a href="www.pinterest.com" className="footer__social-link">
+          <a href="https://www.pinterest.com" className="footer__social-link">
             <img src={pinterest} alt="pinterest logo" />
           </a>
         </div>
