@@ -6,7 +6,7 @@
     padding: 0 10rem;
   }
   &__container {
-    border-radius: 8px;
+    border-radius: .5rem;
     padding: 2rem;
   }
   &__card {
@@ -73,7 +73,6 @@
     background-color: white;
     line-height: 1;
     padding: 0.5rem 0.5rem;
-    // padding: 0.175rem 0.75rem;
     border-radius: 0.5rem;
   }
 }
