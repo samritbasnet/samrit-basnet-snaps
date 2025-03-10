@@ -55,40 +55,58 @@ const PhotoPage = () => {
     }
   };
   return (
-    <div className="photos__section">
+    <div className="photos-section">
       {loading ? (
         <p>Loading photo details...</p>
       ) : photo ? (
-        <div className="photo__card">
-          <img className="photos__image" src={photo.photo} alt={photo.photoDescription} />
-          {photo.tags.map(tag => {
-            return <p className="photo-single__tag">{tag}</p>;
-          })}
-          <p>Photo by: {photo.photographer}</p>
-          <p>
-            <img src={Like_Outline} />
-            {photo.likes}
-          </p>
-          {photo.timestamp && (
-            <p className="photo__date">{new Date(photo.timestamp).toLocaleDateString()}</p>
-          )}
+        <div className="photos-section__container">
+          <div className="photos-section__card">
+            <img className="photos-section__image" src={photo.photo} alt={photo.photoDescription} />
+            <div className="photos-section__tags">
+              {photo.tags.map(tag => {
+                return <p className="photo-single__tag">{tag}</p>;
+              })}
+            </div>
+            <div className="photos-section__social">
+              <div className="photos-section__info">
+                <p className="photos-section__likes">
+                  <img src={Like_Outline} />
+                  {photo.likes} likes
+                </p>
+                <p className="photos-section__photographer">Photo by: {photo.photographer}</p>
+              </div>
 
-          <div className="photo__form">
-            <form className="photo__comment-form" onSubmit={handleCommentSubmit}>
-              <input
-                type="text"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                placeholder="Your Name"
-                className={`inputvalid ${inputError && 'inputvalid--error'}`}
-              />
-              <textarea
-                value={newComment}
-                onChange={e => setNewComment(e.target.value)}
-                placeholder="Your Comment"
-                className={`inputvalid ${inputError && 'inputvalid--error'}`}
-              />
-              <button type="submit">Submit</button>
+              {photo.timestamp && (
+                <p className="photo__date">{new Date(photo.timestamp).toLocaleDateString()}</p>
+              )}
+            </div>
+          </div>
+          <div className="photos__form">
+            <form className="photos__comment-form" onSubmit={handleCommentSubmit}>
+              <div className="form">
+                <div className="form__name">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    placeholder="Your Name"
+                    className={`inputvalid ${inputError && 'inputvalid--error'}`}
+                  />
+                </div>
+                <div className="form__comment">
+                  <label for="comment">Comment</label>
+                  <textarea
+                    value={newComment}
+                    onChange={e => setNewComment(e.target.value)}
+                    placeholder="Your Comment"
+                    className={`inputvalid ${inputError && 'inputvalid--error'}`}
+                  />
+                </div>
+                <button className="form__button" type="submit">
+                  Submit
+                </button>
+              </div>
             </form>
             <h2 className="photo__comments-title">{comments.length} Comments</h2>
             <hr />
