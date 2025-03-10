@@ -7,8 +7,8 @@ const Navbar = ({ togglePanelOpen }) => {
 
   return (
     <nav className="navbar">
-      <NavLink className="navbar__logo logo" to="/">
-        Snaps
+      <NavLink to="/">
+        <h1 className="navbar__logo logo "> Snaps</h1>
       </NavLink>
       {location.pathname.includes('/photo') ? (
         <Link className="navbar__home" to={'/'}>

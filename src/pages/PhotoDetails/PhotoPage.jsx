@@ -64,7 +64,7 @@ const PhotoPage = () => {
             <img className="photos-section__image" src={photo.photo} alt={photo.photoDescription} />
             <div className="photos-section__tags">
               {photo.tags.map(tag => {
-                return <p className="photo-single__tag">{tag}</p>;
+                return <div className="photo-single__tag">{tag}</div>;
               })}
             </div>
             <div className="photos-section__social">
