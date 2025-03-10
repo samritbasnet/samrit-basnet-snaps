@@ -133,6 +133,9 @@
   font-size: 0.75rem;
   justify-content: space-between;
   color: $primary-accent;
+  @include tablet {
+    font-size: 1rem;
+  }
 }
 .photos__comments-title {
   font-size: 1rem;
