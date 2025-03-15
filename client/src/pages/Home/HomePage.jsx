@@ -5,7 +5,7 @@ import Photos from '../../components/Gallery/Photos';
 import Hero from '../../components/Hero/Hero';
 import Tags from '../../components/Tags/Tags';
 import { API_KEY, BASE_URL } from '../../config';
-import './Home.scss';
+import './HomePage.scss';
 
 const HomePage = ({ isTagsPanelOpen }) => {
   const [selectedTag, setSelectedTag] = useState(null);
@@ -27,7 +27,7 @@ const HomePage = ({ isTagsPanelOpen }) => {
 
   useEffect(() => {
     if (selectedTag) {
-      setFilteredPhotos(photos.filter(photo => photo.tags.includes(selectedTag)));
+      setFilteredPhotos(photos.filter((photo) => photo.tags.includes(selectedTag)));
     } else {
       setFilteredPhotos(photos);
     }
@@ -42,7 +42,7 @@ const HomePage = ({ isTagsPanelOpen }) => {
         <div className="homepage__container">
           <Hero />
           {filteredPhotos.length > 0 ? (
-            filteredPhotos.map(photo => (
+            filteredPhotos.map((photo) => (
               <div
                 className={`homepage__photoslist ${
                   isTagsPanelOpen && 'homepage__photoslist--open'
