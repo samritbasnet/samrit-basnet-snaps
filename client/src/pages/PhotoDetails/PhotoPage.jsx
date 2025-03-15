@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Like_Outline from '../../assets/images/Icons/Like_Outline.svg';
-import { API_KEY, BASE_URL } from '../../config';
+import { BASE_URL } from '../../config';
 import './PhotoPage.scss';
 
 const PhotoPage = () => {
@@ -16,8 +16,8 @@ const PhotoPage = () => {
     const fetchPhotoDetails = async () => {
       try {
         const [photoResponse, commentResponse] = await Promise.all([
-          axios.get(`${BASE_URL}photos/${id}?api_key=${API_KEY}`),
-          axios.get(`${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`),
+          axios.get(`${BASE_URL}photos/${id}`),
+          axios.get(`${BASE_URL}photos/${id}/comments`),
         ]);
 
         setPhotoData({
@@ -44,9 +44,9 @@ const PhotoPage = () => {
     if (errors.name || errors.newComment) return;
 
     try {
-      await axios.post(`${BASE_URL}photos/${id}/comments?api_key=${API_KEY}`, {
-        name: formData.name,
-        comment: formData.newComment,
+      await axios.post(`${BASE_URL}photos/${id}/comments`, {
+        author: formData.name,
+        text: formData.newComment,
       });
       setFormData({ name: '', newComment: '' });
       setInputError({ name: false, newComment: false });
@@ -140,12 +140,14 @@ const PhotoPage = () => {
                 {photoData.comments.map((comment) => (
                   <li key={comment.id} className="photo__comment-item">
                     <div className="photo__comment-header">
-                      <strong className="photo__comment-name">{comment.name}</strong>
+                      <strong className="photo__comment-name">
+                        {comment.name || comment.author}
+                      </strong>
                       <span className="photo__comment-date">
                         {new Date(comment.timestamp).toLocaleDateString()}
                       </span>
                     </div>
-                    <p className="comment-text">{comment.comment}</p>
+                    <p className="comment-text">{comment.comment || comment.text}</p>
                     <hr className="photo__divider" />
                   </li>
                 ))}

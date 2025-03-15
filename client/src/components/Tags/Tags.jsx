@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { API_KEY, BASE_URL } from '../../config';
+import { BASE_URL } from '../../config';
 import './Tags.scss';
 
 const Tags = ({ selectedTag, setSelectedTag }) => {
@@ -9,8 +9,9 @@ const Tags = ({ selectedTag, setSelectedTag }) => {
   useEffect(() => {
     const fetchTags = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}tags?api_key=${API_KEY}`);
-        setTags(response.data); 
+        const response = await axios.get(`${BASE_URL}tags`);
+
+        setTags(response.data);
       } catch (error) {
         console.error('Error fetching tags:', error);
       }
