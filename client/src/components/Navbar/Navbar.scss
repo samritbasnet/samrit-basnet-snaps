@@ -1,0 +1,60 @@
+@use '../../styles/partials/index' as *;
+@use '../../styles/partials/breakpoint' as *;
+.navbar {
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem 0.5625rem;
+
+  &__logo {
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: left;
+    color: $primary-text;
+    @include tablet {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      font-weight: 400;
+    }
+  }
+
+  &__home {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: $primary-accent;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: $primary-accent;
+    border: 0.125rem solid $primary-accent;
+    line-height: 0.9375rem;
+    font-family: 'Outfit';
+    border-radius: 62.4375rem;
+    background-color: $primary-background;
+
+    @include tablet {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.625rem;
+      padding: 0.75rem 2.75rem;
+    }
+    &:hover {
+      background-color: $primary-accent;
+      color: $alternate-text;
+      path {
+        fill: white;
+      }
+    }
+  }
+}
