@@ -42,7 +42,7 @@ const HomePage = ({ isTagsPanelOpen }) => {
         <div className="homepage__container">
           <Hero />
           {filteredPhotos.length > 0 ? (
-            filteredPhotos.map((photo) => (
+            filteredPhotos.map(photo => (
               <div
                 className={`homepage__photoslist ${
                   isTagsPanelOpen && 'homepage__photoslist--open'
