@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import Photos from '../../components/Gallery/Photos';
 import Hero from '../../components/Hero/Hero';
 import Tags from '../../components/Tags/Tags';
-import { API_KEY, BASE_URL } from '../../config';
-import './Home.scss';
+import {  BASE_URL } from '../../config';
+import './HomePage.scss';
 
 const HomePage = ({ isTagsPanelOpen }) => {
   const [selectedTag, setSelectedTag] = useState(null);
@@ -15,7 +15,7 @@ const HomePage = ({ isTagsPanelOpen }) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}photos?api_key=${API_KEY}`);
+        const response = await axios.get(`${BASE_URL}photos`);
         setPhotos(response.data);
         setFilteredPhotos(response.data);
       } catch (error) {
@@ -27,7 +27,7 @@ const HomePage = ({ isTagsPanelOpen }) => {
 
   useEffect(() => {
     if (selectedTag) {
-      setFilteredPhotos(photos.filter(photo => photo.tags.includes(selectedTag)));
+      setFilteredPhotos(photos.filter((photo) => photo.tags.includes(selectedTag)));
     } else {
       setFilteredPhotos(photos);
     }
